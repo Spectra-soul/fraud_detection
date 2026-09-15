@@ -76,13 +76,17 @@ To provide models with optimal predictive signals and remove mathematical redund
    $$\text{LogAmount} = \ln(\text{Amount} + 1)$$
    The raw `Amount` feature is subsequently dropped to eliminate exact collinearity in split criteria.
 
-2. **Cyclical Time Encoding (`Hour_sin`, `Hour_cos`):**
+2. **Cyclical Time Encoding (`Hour_sin`, `Hour_cos`):**  
    Elapsed seconds (`Time`) are converted to approximate hour-of-day:
+   
    $$\text{Hour} = \left(\left\lfloor \frac{\text{Time}}{3600} \right\rfloor \pmod{24}\right)$$
+   
    Because hour `23` (11 PM) and hour `0` (12 AM) are adjacent in time, standard linear representations introduce a false boundary. We transform `Hour` into cyclical sine/cosine wave coordinates:
-   $$\text{Hour}_{\sin} = \sin\left(\frac{2\pi \times \text{Hour}}{24}\right), \quad \text{Hour}_{\cos} = \cos\left(\frac{2\pi \times \text{Hour}}{24}\right)$$
-   Raw `Hour` is dropped, leaving 32 clean input features.
 
+   * `Hour_sin = sin(2 * π * Hour / 24)`
+   * `Hour_cos = cos(2 * π * Hour / 24)`
+
+   Raw `Hour` is dropped, leaving 32 clean input features.
 ---
 
 ## Data Leakage Prevention Design
