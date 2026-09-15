@@ -239,7 +239,7 @@ In a live payments gateway, the model output should trigger automated routing ra
 
 ### 1. Clone Repository & Setup Environment
 ```bash
-git clone https://github.com/your-username/financial-fraud-detection.git
+git clone https://github.com/Spectra-soul/fraud_detection.git
 cd financial-fraud-detection
 
 # Create virtual environment
