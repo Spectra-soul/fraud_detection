@@ -75,6 +75,7 @@ To provide models with optimal predictive signals and remove mathematical redund
    Transaction amount exhibits severe positive skewness. We apply the natural log transformation:
    $$\text{LogAmount} = \ln(\text{Amount} + 1)$$
    The raw `Amount` feature is subsequently dropped to eliminate exact collinearity in split criteria.
+
 2. **Cyclical Time Encoding (`Hour_sin`, `Hour_cos`):**
    Elapsed seconds (`Time`) are converted to approximate hour-of-day:
    $$\text{Hour} = \left(\left\lfloor \frac{\text{Time}}{3600} \right\rfloor \pmod{24}\right)$$
